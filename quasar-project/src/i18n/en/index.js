@@ -8,5 +8,5 @@ export default {
   labelExperiencia: "Experience",
   labelPeso: "Weight",
   labelAltura: "Height",
-  success: "Action was successful",
+  limparFiltro: "Clear Filters",
 };

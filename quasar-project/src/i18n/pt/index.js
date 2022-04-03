@@ -8,5 +8,5 @@ export default {
   labelExperiencia: "Experiência",
   labelPeso: "Peso",
   labelAltura: "Altura",
-  success: "acao com sucesso",
+  limparFiltro: "Limpar Filtros",
 };

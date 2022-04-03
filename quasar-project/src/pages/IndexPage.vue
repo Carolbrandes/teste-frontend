@@ -3,6 +3,13 @@
     <div class="q-my-md row wrap justify-center">
       <pokemon-filter-name />
       <pokemon-filter-types />
+      <q-btn
+        class="glossy q-ml-sm q-mt-sm"
+        rounded
+        color="deep-orange"
+        :label="$t('limparFiltro')"
+        @click="clearFilters"
+      />
     </div>
 
     <q-page style="min-height: auto">
@@ -47,6 +54,10 @@ export default defineComponent({
 
   methods: {
     ...mapMutations("pokemon", ["UPDATE_NO_RESULTS"]),
+
+    clearFilters() {
+      window.location.reload();
+    },
   },
 
   watch: {
