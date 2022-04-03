@@ -1,36 +1,23 @@
 <template>
-  <q-card
-    v-for="(pokemon, index) in pokemonsGetter"
-    :key="pokemon.name"
-    dark
-    bordered
-    class="col-5 col-md-2 bg-grey-9 my-card q-mt-md q-mr-sm"
-  >
-    <q-card-section>
-      <h2 class="text-h6 text-center">{{ ++index }}</h2>
-      <h2 class="text-h6 text-center text-capitalize">{{ pokemon.name }}</h2>
-    </q-card-section>
-
-    <q-separator dark inset />
-
-    <q-card-section class="flex flex-center">
-      <q-btn
-        @click="seeMore(index, pokemon.name)"
-        label="Ver mais"
-        glossy
-        color="amber"
-      />
-    </q-card-section>
-  </q-card>
+  <div v-for="({ name, types }, index) in pokemonsGetter" :key="index">
+    <pokemons-card
+      :index="++index"
+      :name="name"
+      :types="arrayToString(types)"
+    />
+  </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import { mapState, mapActions, mapGetters } from "vuex";
+import PokemonsCard from "./PokemonsCard.vue";
+import { myMixin } from "../mixins/index";
 
 export default defineComponent({
   name: "PokemonsList",
-
+  components: { PokemonsCard },
+  mixins: [myMixin],
   computed: {
     ...mapState("pokemon", ["pokemons"], "pokemon", ["pokemonName"]),
     ...mapGetters("pokemon", ["pokemonsGetter"]),

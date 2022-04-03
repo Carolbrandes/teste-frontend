@@ -1,8 +1,6 @@
 <template>
-  <div class="q-my-md row justify-center">
-    <div class="col-10 col-md-4">
-      <q-input rounded filled v-model="nameText" label="Nome do Pokemon" />
-    </div>
+  <div class="q-mr-sm col-10 col-md-3">
+    <q-input rounded filled v-model="nameText" label="Nome do Pokemon" />
   </div>
 </template>
 
