@@ -12,7 +12,8 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "postinstall": "npm run build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
