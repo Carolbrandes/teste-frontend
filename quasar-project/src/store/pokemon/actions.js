@@ -4,7 +4,7 @@ export async function getPokemons({ commit }) {
   try {
     commit("UPDATE_LOADING", true);
     const { data } = await apiPokemon.get("/pokemon");
-    console.log("data", data);
+
     const newArray = [];
     const types = [];
 
@@ -12,7 +12,7 @@ export async function getPokemons({ commit }) {
       try {
         let index = i + 1;
         const { data } = await apiPokemon.get(`/pokemon/${index}`);
-        console.log(data);
+
         newArray.push(data);
 
         data.types.forEach(({ type }) => {
@@ -25,9 +25,6 @@ export async function getPokemons({ commit }) {
       }
     }
 
-    console.log("new Array", newArray);
-
-    console.log(types);
     commit("UPDATE_POKEMONS", newArray);
     commit("UPDATE_POKEMONS_TYPES", types);
   } catch (error) {

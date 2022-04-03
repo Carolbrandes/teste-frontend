@@ -1,6 +1,7 @@
 import { store } from "quasar/wrappers";
 import { createStore } from "vuex";
 import pokemon from "./pokemon/index";
+import language from "./language/index";
 
 // import example from './module-example'
 
@@ -17,6 +18,7 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       pokemon,
+      language,
     },
 
     // enable strict mode (adds overhead!)

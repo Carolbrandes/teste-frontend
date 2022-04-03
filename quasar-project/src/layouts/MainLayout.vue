@@ -13,9 +13,20 @@
 
         <q-toolbar-title>
           <router-link class="text-white no-text-decoration" to="/"
-            >Pokemon</router-link
-          >
+            >Pokemon
+          </router-link>
         </q-toolbar-title>
+
+        <div class="col-2 q-py-sm">
+          <q-select
+            bg-color="warning"
+            rounded
+            outlined
+            v-model="$i18n.locale"
+            :options="options"
+            :label="$t('labelIdioma')"
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -27,6 +38,8 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { mapMutations, mapState } from "vuex";
+import { useQuasar } from "quasar";
 
 export default defineComponent({
   name: "MainLayout",
@@ -39,7 +52,24 @@ export default defineComponent({
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      options: ["pt", "en"],
     };
+  },
+
+  computed: {
+    ...mapState("language", ["language"]),
+  },
+  methods: {
+    ...mapMutations("language", ["UPDATE_LANGUAGE"]),
+  },
+  beforeMount() {
+    this.locale = this.$q.lang.getLocale();
+    this.UPDATE_LANGUAGE(this.$q.lang.getLocale());
+  },
+  watch: {
+    locale() {
+      this.UPDATE_LANGUAGE(this.locale);
+    },
   },
 });
 </script>

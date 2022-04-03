@@ -1,6 +1,6 @@
 <template>
   <div class="q-mr-sm col-10 col-md-3">
-    <q-input rounded filled v-model="nameText" label="Nome do Pokemon" />
+    <q-input rounded filled v-model="nameText" :label="$t('filtroNome')" />
   </div>
 </template>
 

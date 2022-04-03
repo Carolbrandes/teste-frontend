@@ -5,7 +5,7 @@
       outlined
       v-model="type"
       :options="options"
-      label="Tipos"
+      :label="$t('filtroTipos')"
     />
   </div>
 </template>

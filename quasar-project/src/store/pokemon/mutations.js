@@ -18,6 +18,6 @@ export function UPDATE_LOADING(state, payload) {
   state.loading = payload;
 }
 
-export function UPDATE_NO_RESULTS(state, payload){
-  state.noResults = payload
+export function UPDATE_NO_RESULTS(state, payload) {
+  state.noResults = payload;
 }

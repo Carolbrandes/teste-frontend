@@ -5,11 +5,9 @@
       <pokemon-filter-types />
     </div>
 
-
     <q-page style="min-height: auto">
-
-       <div
-       v-if="!noResults"
+      <div
+        v-if="!noResults"
         class="row justify-center justify-md-evenly items-baseline wrap"
       >
         <pokemons-list />
@@ -24,8 +22,8 @@
         />
       </div>
 
-       <div class="q-mt-md text-center" v-else>
-        Nenhum Pokemon Encontrado
+      <div class="q-mt-md text-center" v-if="noResults">
+        {{ $t("nenhumPokemonEncontrado") }}
       </div>
     </q-page>
   </div>
@@ -48,14 +46,13 @@ export default defineComponent({
   },
 
   methods: {
-    ...mapMutations("pokemon", ["UPDATE_NO_RESULTS"])
+    ...mapMutations("pokemon", ["UPDATE_NO_RESULTS"]),
   },
 
   watch: {
-    pokemonsGetter(){
-      console.log("lenght", this.pokemonsGetter.length)
-      if(this.pokemonsGetter.length === 0) this.UPDATE_NO_RESULTS(true)
-    }
-  }
+    pokemonsGetter() {
+      if (this.pokemonsGetter.length === 0) this.UPDATE_NO_RESULTS(true);
+    },
+  },
 });
 </script>

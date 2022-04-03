@@ -4,5 +4,5 @@ export default {
   pokemonTypes: [],
   pokemonSelectedType: "",
   loading: false,
-  noResults: false
+  noResults: false,
 };

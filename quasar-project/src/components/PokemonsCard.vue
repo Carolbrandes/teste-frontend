@@ -7,7 +7,7 @@
     <q-card-section>
       <h2 class="text-h6 text-center">{{ index }}</h2>
       <h2 class="text-h6 text-center text-capitalize">{{ name }}</h2>
-      <p>Types: {{ types }}</p>
+      <p>{{ $t("labelTipoPokemon") }}: {{ types }}</p>
     </q-card-section>
 
     <q-separator dark inset />
@@ -15,7 +15,7 @@
     <q-card-section class="flex flex-center">
       <q-btn
         @click="seeMore(index, name)"
-        label="Ver mais"
+        :label="$t('botaoVerMais')"
         glossy
         color="amber"
       />
