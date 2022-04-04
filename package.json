@@ -12,7 +12,8 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "start": "node server.js",
-    "heroku-postbuild": "yarn && yarn build"
+    "heroku-postbuild": "yarn && yarn build",
+    "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.13.14",
@@ -34,7 +35,12 @@
     "vue-router": "^4.0.0",
     "vuex": "^4.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "quasar-app-extension-gh-pages-auto-deploy": "^0.4.0",
+    "chalk": "^4.0.0",
+    "execa": "^4.0.0",
+    "node-emoji": "^1.10.0"
+  },
   "browserslist": [
     "last 10 Chrome versions",
     "last 10 Firefox versions",
